@@ -38,10 +38,12 @@ public class TimeClient {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+
             if (writer != null) {
                 writer.close();
                 writer = null;
             }
+            System.out.println("writer is : " + writer);
 
 
             if (reader != null) {
@@ -60,6 +62,8 @@ public class TimeClient {
                 }
                 socket = null;
             }
+            System.out.println("socket is : " + socket);
+
         }
 
     }
