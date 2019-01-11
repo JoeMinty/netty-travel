@@ -1,4 +1,4 @@
-package travel;
+package travel.BIO;
 
 import java.io.*;
 import java.net.Socket;

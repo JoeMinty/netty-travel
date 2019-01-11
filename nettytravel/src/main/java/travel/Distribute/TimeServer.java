@@ -1,4 +1,6 @@
-package travel;
+package travel.Distribute;
+
+import travel.BIO.TimeServerHandler;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -22,10 +24,12 @@ public class TimeServer {
             server = new ServerSocket(port);
             System.out.println("The time server is start in port : " + port);
             Socket socket = null;
+
+            TimeServerHandlerExecutePool singleExecutor = new TimeServerHandlerExecutePool(50, 10000);
             while (true) {
                 System.out.println("waiting client connect..." );
                 socket = server.accept();
-                new Thread(new TimeServerHandler(socket)).start();
+                singleExecutor.execute(new TimeServerHandler(socket));
                 System.out.println("end client connect..." );
 
             }
