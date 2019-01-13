@@ -23,10 +23,8 @@ public class TimeServer {
             System.out.println("The time server is start in port : " + port);
             Socket socket = null;
             while (true) {
-                System.out.println("waiting client connect..." );
                 socket = server.accept();
                 new Thread(new TimeServerHandler(socket)).start();
-                System.out.println("end client connect..." );
 
             }
         } finally {
