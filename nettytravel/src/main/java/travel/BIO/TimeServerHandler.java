@@ -17,6 +17,12 @@ public class TimeServerHandler implements Runnable{
         PrintWriter writer = null;
 
         try {
+            /**
+             * 当对socket的输入流进行读取操作的时候，会一直阻塞，直到发生以下三种事件
+             * 1.有数据可读
+             * 2.可用数据已经读取完毕
+             * 3.发生空指针或者I/O异常
+             */
             reader = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
             writer = new PrintWriter(this.socket.getOutputStream(), true);
             String currentTime = null;

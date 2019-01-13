@@ -17,8 +17,4 @@ public class TimeServerHandlerExecutePool {
    public void execute(Runnable task) {
         executor.execute(task);
    }
-
-   public void calcute() {
-        executor.
-   }
 }
