@@ -1,0 +1,19 @@
+nio 提供了SocketChannel和ServerSocketChannel两种不同的套接字通道。这两种通道都支持阻塞和非阻塞两种模式。
+
+nio类库简介
+1.缓冲区Buffer
+在面向流的I／O中，可以将数据直接写入或者将数据直接读到Stream对象中
+在nio中，所有数据都是用缓冲区处理的。
+缓冲区实质上是一个数组。通常它是一个字节数组（ByteBuffer）
+
+可以查看Buffer继承关系图
+
+2.通道Channel
+网络数据通过Channel读取和写入。通道和流的不同之处在于通道是双向的，流只是在一个方向上移动（一个流必须是InputStream或者OutputStream的子类），而通道可以用于读，写或者两者同时进行。
+
+可以查看Channel继承关系类图
+可以将channel分为两大类：用于网络读写的SelectableChannel和用于文件操作的FileChannel
+
+
+3.多路复用器Selector
+多路复用器Selector会不断地轮询注册在其上的Channel，如果某个Channel上面发生读写事件，这个channel就处于就绪状态，会被selector轮询出来，然后通SelectionKey可以获取就绪Channel的集合，进行后续的I／O操作
