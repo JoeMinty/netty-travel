@@ -17,3 +17,5 @@ nio类库简介
 
 3.多路复用器Selector
 多路复用器Selector会不断地轮询注册在其上的Channel，如果某个Channel上面发生读写事件，这个channel就处于就绪状态，会被selector轮询出来，然后通SelectionKey可以获取就绪Channel的集合，进行后续的I／O操作
+
+
